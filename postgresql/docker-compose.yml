@@ -1,0 +1,29 @@
+version: '3.1'
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+networks: 
+  net:
+
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+volumes:
+  data:
+
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+services:
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  
+  postgres:
+    image: postgres
+    container_name: PostgreSQL
+    restart: always
+    networks: 
+      - net
+    environment:
+      TZ: Asia/Seoul
+      # PGTZ: GMT+9
+      # POSTGRES_DB: postgres
+      # POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ghktjddl9337
+    ports:
+      - 5432:5432
+    volumes:
+      - data:/var/lib/postgresql/data
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<        
